@@ -1,0 +1,6 @@
+# ignore input and output files
+*.in
+*.out
+
+# ignore executable files
+!*.*

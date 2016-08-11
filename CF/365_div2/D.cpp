@@ -1,12 +1,13 @@
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <vector>
+#include <map>
 
 #define N 1000100
 
 using namespace std;
 
 int a[N], c[N], s[N], res[N];
-int l[N], r[N];
-vector< pair<int , int> > q;
+vector< pair<int , int> > q[N];
 map<int , int> last;
 int n, m;
 
@@ -29,42 +30,35 @@ int sum(int pos) {
 int main() {
 	freopen("1.in", "r", stdin);
 	freopen("1.out", "w", stdout);
-	cin >> n;
+	scanf("%d", &n);
 	for (int i = 1; i <= n; i++) {
-		cin >> a[i];
+		scanf("%d", &a[i]);
 		s[i] = s[i - 1] ^ a[i];
 	}
-	cin >> m;
+	scanf("%d", &m);
 	for (int i = 0; i < m; i++) {
-		cin >> l[i] >> r[i];
-		q.push_back(make_pair(r[i], i));
+		int l, r;
+		scanf("%d %d", &l, &r);
+		q[r].push_back(make_pair(l, i));
 	}
-	sort(q.begin(), q.end());
-	// for (int i = 0; i < 10; i++)
-	// 	cout << l[q[i].second] << " " << r[q[i].second] << endl;
-	if (m == 1000000) {
-		return 0;
-	}
-	int now = 1;
-	for (int i = 0; i < q.size(); i++) {
-		int k = q[i].second;
-		// cout << i << " " << k << " " << r[k] << endl;
-		while (now <= r[k]) {
-			if (last.count(a[now])) {
-				// cout << "!" << endl;
-				add(last[a[now]], a[now]);
-				last[a[now]] = now;
-				add(now, a[now]);
-			} else {
-				last[a[now]] = now;
-				add(now, a[now]);
-			}
-			now++;
+	for (int r = 1; r <= n; r++) {
+		if (last.count(a[r])) {
+			// cout << "!" << endl;
+			add(last[a[r]], a[r]);
+			last[a[r]] = r;
+			add(r, a[r]);
+		} else {
+			last[a[r]] = r;
+			add(r, a[r]);
 		}
-		res[k] = s[r[k]] ^ s[l[k] - 1] ^ sum(r[k]) ^ sum(l[k] - 1);
+		for (int j = 0; j < q[r].size(); j++) {
+			int l = q[r][j].first;
+			int k = q[r][j].second;
+			res[k] = s[r] ^ s[l - 1] ^ sum(r) ^ sum(l - 1);
+		}
 	}
 	for (int i = 0; i < m; i++) {
-		cout << res[i] << endl;
+		printf("%d\n", res[i]);
 	}
 	return 0;
 }

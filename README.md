@@ -6,6 +6,7 @@ Store the code of online contest.
 
 # TODO list #
 
+* CF367 Div.2 D binary search
 * the rest unsolved problems
 
 # Record #

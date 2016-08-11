@@ -19,7 +19,7 @@ int main() {
 			flag = false;
 	}
 	if (flag) {
-		cout << (1.0 * w / u) << endl;
+		cout << setprecision(10) << (1.0 * w / u) << endl;
 		return 0;
 	}
 	int p = 0;

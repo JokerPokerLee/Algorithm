@@ -6,7 +6,6 @@ Store the code of online contest.
 
 # TODO list #
 
-* CF365 Div.2 C
 * the rest unsolved problems
 
 # Record #
@@ -16,4 +15,5 @@ Store the code of online contest.
 * 2016.08.04 CF365 Div.2
     - RE on B: insufficient **size of array**.
     - TLS on B: not realize the **property of** distribution on multiplication in **the problem**.
-    - WA on C: remain to be check.
+    - WA on C: stupid mistake, forgot to **set the precision in special cases**.
+    - TLE on D: sort the pair vector costs lots of time. If want to sort intervals by one point, use **vector** to store **links on each point** is a good choice.

@@ -11,6 +11,22 @@ Store the code of online contest.
 
 # Record #
 
+### 2016.08.011 CF367 Div.2 ###
+
+* D: find an element
+    - solution:
+        + consider the problem bit by bit
+        + the higher bits always have more effect on answer than the lower bits
+        + so we try to find an element with every bit opposite by given value from high bit to low bit
+        + as we can see, the desired elements form a continuous interval
+        + so the first consideration is to record the left and right bound of the interval
+        + but it may lead to TLE
+        + but, we only need to know that is there exist some elements with certain bit set (or not)
+        + so we can just record the tmp result and continue to add lower bits and check existance by using lower_bound function
+    - trick: we can simply check that if the result of lower_bound function is larger than the desire value add one more current bit
+    - TLE: lower\_bound(it1, it2, val) is much slower than the s.lower\_bound(val)
+    - WA: consider empty set
+
 ### 2016.08.07 CF366 Div.1 ###
 
 * WA and TLE on A: lack caution manipulating the **pointer**, when the chain is empty, make the tail pointer point to -1 and keep head pointer unchange.

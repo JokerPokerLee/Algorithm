@@ -47,3 +47,10 @@ Store the code of online contest.
     - TLE on D:
         1. sort the pair vector costs lots of time. If want to sort intervals by one point, use **vector** to store **links on each point** is a good choice.
         2. **cin, cout** should **NOT** be used in large data amount situation
+* E: find minimum elements whose product is multiple of a given number
+    - solution:
+        + DP: dp\[i\]\[j\] record the optimal result of the first i elements with gcd j with given number k
+        + if the i-th element is selected, the state can be update from dp\[i - 1\]\[j / gcd(a[i], j)\]
+    - TLE
+        + we should use the gcd(k, a[i]) as a replacement of a[i] at first, cause the time cost of gcd is not that little to neglect.
+        + we can use a pair to record the state with two key value as minimum number of elements and the minimum sum under first constraint.

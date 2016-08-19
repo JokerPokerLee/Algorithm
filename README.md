@@ -11,6 +11,18 @@ Store the code of online contest.
 
 # Record #
 
+### 2016.08.011 TC697 Div.1 ###
+
+* A: given vector b, check if there exist vector a satisfies p[i] | a[i] ^ b[i] for every i in the range of b size. p[i] is equal to the product of all the elements in vector a but a[i];
+    - solution:
+        + for concenience, we can assume that a[i] contains only 2 as prime divisor, because every prime divisor can be considered separately.
+        + so a[i] can be represented by the power of 2, mark as m[i]
+        + then we have the equation: forall i in size, b[i] * m[i] >= sigma(m[j]) (j <> i)
+        + the equation can be transformed into: (b[i] + 1) * m[i] >= sum
+        + the equation above can be interpreted as portion of each m[i] in the sum of all the m[i]
+        + so the problem becomes check whether sum of all 1 / (b[i] + 1) is less than 1
+        + trick: if the result is exactly equal to 1, it means that the 1 / (b[i] + 1) is exactly the portion of m[i], so than we check if there exist any two elements are the same (because the restriction state that the vector a can only contain distinct elements).
+
 ### 2016.08.011 CF367 Div.2 ###
 
 * D: find an element

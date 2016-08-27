@@ -6,12 +6,28 @@ Store the code of online contest.
 
 # TODO list #
 
+* CF AIM Tech Round 3 Div.1 C
+* CF368 Div.2 D
+* TC687 Div.1 B
 * CF367 Div.2 D binary search
 * the rest unsolved problems
 
 # Record #
 
-### 2016.08.011 TC697 Div.1 ###
+### 2016.08.24 CF AIM Tech Round 3 Div.1 ###
+
+* A: find the first "not a" and "a"
+* B: find a string consisted from 0 and 1, which contains given number of 00, 01, 10, 11 subsequence.
+    - subsequence doesn't need to be continuous.
+
+### 2016.08.20 CF368 Div.2 ###
+
+* C: read in the length of one edge, check if there exist two other integer length edge, three together can form a rectangular triangle
+    - if the length is an odd integer other than 1, then the other two can be easily got from ((b ^ 2 + 1) / 2) and ((b ^ 2 - 1) / 2)
+    - if the length is an even integer, divide it by 2 until it becomes an odd integer, solve the odd situation and times the 2 powers.
+    - properties of ![Pythagorean Triples](https://en.wikipedia.org/wiki/Pythagorean_triple)
+
+### 2016.08.18 TC697 Div.1 ###
 
 * A: given vector b, check if there exist vector a satisfies p[i] | a[i] ^ b[i] for every i in the range of b size. p[i] is equal to the product of all the elements in vector a but a[i];
     - solution:
@@ -23,7 +39,7 @@ Store the code of online contest.
         + so the problem becomes check whether sum of all 1 / (b[i] + 1) is less than 1
         + trick: if the result is exactly equal to 1, it means that the 1 / (b[i] + 1) is exactly the portion of m[i], so than we check if there exist any two elements are the same (because the restriction state that the vector a can only contain distinct elements).
 
-### 2016.08.011 CF367 Div.2 ###
+### 2016.08.11 CF367 Div.2 ###
 
 * D: find an element
     - solution:

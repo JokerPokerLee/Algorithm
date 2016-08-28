@@ -1,1 +1,1 @@
-find CF/ -type f -executable -delete
+find ./ -type f -executable -delete

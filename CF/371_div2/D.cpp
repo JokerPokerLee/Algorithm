@@ -2,11 +2,15 @@
 
 using namespace std;
 
+int cnt;
+
 bool find(int &x1, int &y1, int &x2, int &y2) {
 	int l, r;
 	l = x1, r = x2;
 	while (l <= r) {
 		int m = (l + r) / 2;
+		// cnt++;
+		// printf("%3d ? %d %d %d %d\n", cnt, m, y1, x2, y2);
 		printf("? %d %d %d %d\n", m, y1, x2, y2);
 		fflush(stdout);
 		int x;
@@ -24,6 +28,8 @@ bool find(int &x1, int &y1, int &x2, int &y2) {
 	l = x1, r = x2;
 	while (l <= r) {
 		int m = (l + r) / 2;
+		// cnt++;
+		// printf("%3d ? %d %d %d %d\n", cnt, x1, y1, m, y2);
 		printf("? %d %d %d %d\n", x1, y1, m, y2);
 		fflush(stdout);
 		int x;
@@ -41,6 +47,8 @@ bool find(int &x1, int &y1, int &x2, int &y2) {
 	l = y1, r = y2;
 	while (l <= r) {
 		int m = (l + r) / 2;
+		// cnt++;
+		// printf("%3d ? %d %d %d %d\n", cnt, x1, m, x2, y2);
 		printf("? %d %d %d %d\n", x1, m, x2, y2);
 		fflush(stdout);
 		int x;
@@ -58,6 +66,8 @@ bool find(int &x1, int &y1, int &x2, int &y2) {
 	l = y1, r = y2;
 	while (l <= r) {
 		int m = (l + r) / 2;
+		// cnt++;
+		// printf("%3d ? %d %d %d %d\n", cnt, x1, y1, x2, m);
 		printf("? %d %d %d %d\n", x1, y1, x2, m);
 		fflush(stdout);
 		int x;
@@ -72,6 +82,7 @@ bool find(int &x1, int &y1, int &x2, int &y2) {
 		return false;
 	}
 	y2 = r + 1;
+	return true;
 }
 
 int main() {
@@ -102,7 +113,7 @@ int main() {
 		}
 	}
 	if (y2 < n) {
-		x3 = x2, y3 = y2 + 1, x4 = n, y4 = n;
+		x3 = 1, y3 = y2 + 1, x4 = n, y4 = n;
 		if (find(x3, y3, x4, y4)) {
 			printf("! %d %d %d %d %d %d %d %d\n", x1, y1, x2, y2, x3, y3, x4, y4);
 			return 0;

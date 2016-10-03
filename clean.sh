@@ -1,1 +1,1 @@
-find ./ -type f -executable -delete
+rm ./*/*.exe

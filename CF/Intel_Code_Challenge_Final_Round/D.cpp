@@ -40,34 +40,17 @@ int main() {
 				while (q.size() && j - q.front() > m) {
 					q.pop();
 				}
-				if (q.size() == 0) {
-					q.push(last);
+				if (s[j] <= i) {
+					if (j - last <= m) {
+						f[j] = (last == -1 ? 0 : f[last]) + (s[j] == i ? 1 : 0);
+					} else {
+						f[j] = f[q.front()] + (s[j] == i ? 1 : 0);
+					}
+					last = s[j] == i ? last : j;
 				}
-				// cout << q.front() << "--" << endl;
-				if (s[j] < i) {
-					if (q.front() == -1) {
-						f[j] = 0;
-					} else {
-						f[j] = f[q.front()];
-					}
-					last = j;
-				} else
 				if (s[j] == i) {
-					if (j - last < m) {
-						f[j] = ((last == -1) ? 0 : f[last]) + 1;
-					} else {
-						if (q.front() == -1) {
-							f[j] = 1;
-						} else {
-							f[j] = f[q.front()] + 1;
-						}
-					}
-					while (q.size() && q.back() != -1 && f[q.back()] >= f[j]) {
-						q.pop();
-					}
 					q.push(j);
 				}
-				// cout << f[j] << endl;
 			}
 			string ans;
 			for (int j = 0; j < s.size(); j++) {
@@ -75,12 +58,8 @@ int main() {
 					ans += s[j];
 				}
 			}
-			if (q.front() == -1) {
-				cout << (char)i << endl;
-				return 0;
-			}
-			int cnt = f[q.front()];
-			for (int j = 0; j < f[q.front()]; j++) {
+			int cnt = (s.size() - last <= m) ? f[last] : f[q.front()];
+			for (int j = 0; j < cnt; j++) {
 				ans += (char)(i);
 			}
 			sort(ans.begin(), ans.end());

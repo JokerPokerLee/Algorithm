@@ -1,0 +1,26 @@
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <string.h>
+
+using namespace std;
+
+class <%:class-name%> {
+public:
+	<%:return-type%> <%:method-name%>(<%:param-list%>) {
+		<%:set-caret%>
+	}
+};
+
+<%:testing-code%>

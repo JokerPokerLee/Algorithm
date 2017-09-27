@@ -14,6 +14,10 @@ Store the code of online contest.
 
 # Record #
 
+### 2016.09.17 CF371 Div.2 ###
+
+* C: erase(x) method of multiset will remove all the elements equal to x.
+
 ### 2016.08.24 CF AIM Tech Round 3 Div.1 ###
 
 * A: find the first "not a" and "a"

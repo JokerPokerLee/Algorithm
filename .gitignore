@@ -4,3 +4,6 @@
 
 # ignore executable files
 *.exe
+
+# Kawai path
+TC/newSRM
